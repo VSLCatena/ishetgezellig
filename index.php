@@ -20,7 +20,7 @@ if (file_exists($fileCounter)) {
     // Last time we modified the file
     $messageModified = date ("H:i", filemtime($fileCounter));
 
-    // Retrieve, calculate and estimate the amount of people on Catena
+    // Retrieve, calculate and estimate the amount of people
     $rawAmount = file_get_contents($fileCounter);
     $corrFactor = 1.1;
     $corrNumber = 8;
