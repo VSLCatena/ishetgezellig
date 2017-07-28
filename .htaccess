@@ -1,4 +1,4 @@
-RewriteEngine on 
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC] 
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost.*$ [NC] 
-RewriteRule \.(log)$ - [F]
+<Files ~ "\.log$">
+  Order allow,deny
+  Deny from all
+</Files>
