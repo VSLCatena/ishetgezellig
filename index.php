@@ -1,5 +1,5 @@
 <?php
-include './config.php';
+#include './config.php';
 
 // Declared the files here for easy adjustments later
 $fileKader = 'message_kader.txt';
@@ -20,7 +20,7 @@ if (file_exists($fileCounter)) {
     // Last time we modified the file
     $messageModified = date ("H:i", filemtime($fileCounter));
 
-    // Retrieve, calculate and estimate the amount of people
+    // Retrieve, calculate and estimate the amount of people on Catena
     $rawAmount = file_get_contents($fileCounter);
     $corrFactor = 1.1;
     $corrNumber = 8;
@@ -44,11 +44,11 @@ $day = date("l");
 $hour = date("H");
 
 if($hour >= 21 || $hour == 0 || // we're always open from 21:00, and from 0:00 till 0:59
-    $hour >= 14 && !($day == 'Saturday' || $day == 'Sunday')) // If it's NOT saturday or sunday, we're open from 14:00
+    $hour >= 16 && !($day == 'Saturday' || $day == 'Sunday')) // If it's NOT saturday or sunday, we're open from 14:00
     $messageStatus = 'open';
 elseif($hour < 6) // If it's before 6:00, we might still be open!
     $messageStatus = 'mogelijk nog open';
-elseif($hour >= 6 && $hour <= 13) // Between 6:00 and 13:59 we might be closed
+elseif($hour >= 6 && $hour <= 16) // Between 6:00 and 13:59 we might be closed
     $messageStatus = 'mogelijk gesloten';
 else // Otherwise we're closed.
     $messageStatus = 'gesloten';
